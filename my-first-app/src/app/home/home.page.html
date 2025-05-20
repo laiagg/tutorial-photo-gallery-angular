@@ -1,0 +1,41 @@
+<!-- <ion-header id="main-header" [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ionic App
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-icon name="person-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>HOME</ion-title>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="search-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="containerList">
+    <ion-list>
+      <ion-item button="true" (click)="navto('laptop')">Laptop</ion-item>
+      <ion-item button="true" (click)="navto('phone')">Phone</ion-item>
+      <ion-item button="true" (click)="navto('pc')">PC</ion-item>
+    </ion-list>
+
+  </div>
+  <div id="containerButtons">
+    <ion-button color="light">Grafico<ion-icon name="bar-chart-outline"></ion-icon></ion-button> 
+  </div>
+  <div>
+    <ion-button>Aceptar<ion-icon name="arrow-forward-outline"></ion-icon></ion-button> 
+    <ion-button [disabled]="true">Cancelar</ion-button>
+  </div>
+</ion-content>
