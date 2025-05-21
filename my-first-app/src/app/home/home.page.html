@@ -1,23 +1,31 @@
-<!-- <ion-header id="main-header" [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Ionic App
-    </ion-title>
-  </ion-toolbar>
-</ion-header> -->
+<!-- Menú lateral -->
+<ion-menu side="start" contentId="main-content" type="push">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <!-- <ion-item button="true" (click)="">Inicio</ion-item> -->
+      <ion-item button="true" (click)="navPerfil()">Perfil</ion-item>
+      <ion-item button="true" (click)="navPedidos()">Pedidos</ion-item>
 
-<ion-content [fullscreen]="true">
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido principal -->
+<ion-content id="main-content" [fullscreen]="true">
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-button>
-          <ion-icon name="person-circle-outline"></ion-icon>
-        </ion-button>
+        <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title>HOME</ion-title>
       <ion-buttons slot="end">
-        <ion-button>
-          <ion-icon name="search-outline"></ion-icon>
+        <ion-button (click)="navPerfil()">
+          <ion-icon button="true" name="person-circle-outline" ></ion-icon>
         </ion-button>
       </ion-buttons>
     </ion-toolbar>
@@ -29,13 +37,41 @@
       <ion-item button="true" (click)="navto('phone')">Phone</ion-item>
       <ion-item button="true" (click)="navto('pc')">PC</ion-item>
     </ion-list>
-
   </div>
+  
   <div id="containerButtons">
-    <ion-button color="light">Grafico<ion-icon name="bar-chart-outline"></ion-icon></ion-button> 
+    <ion-button color="light" (click)="navGrafico()">Gráfico <ion-icon name="bar-chart-outline"></ion-icon></ion-button> 
+    <ion-button color="light" (click)="navCalendario()">Calendario <ion-icon name="calendar-outline"></ion-icon></ion-button> 
   </div>
+  
   <div>
-    <ion-button>Aceptar<ion-icon name="arrow-forward-outline"></ion-icon></ion-button> 
-    <ion-button [disabled]="true">Cancelar</ion-button>
+    <ion-button id="present-alert">Abrir alerta<ion-icon name="arrow-forward-outline"></ion-icon></ion-button> 
+    <ion-alert
+      trigger="present-alert"
+      header="Alerta de prueba"
+      subHeader="Probando los elementos"
+      message="Alerta"
+      [buttons]="alertButtons"
+    ></ion-alert>
+    <ion-button [disabled]="true">Deshabilitado</ion-button>
+  </div>
+
+  <div>
+    <ion-button (click)="openFecha()" color="danger">Configurar fecha y hora: </ion-button>
+    <ion-modal [isOpen]="showModal" (didDismiss)="closeFecha()">
+      <ion-datetime 
+        [value]="selectedDate" 
+        presentation="date-time"
+        [preferWheel]="true"
+        (ionChange)="updateSelection($event)">
+      </ion-datetime>
+      <ion-button (click)="closeFecha()">Cerrar</ion-button>
+    </ion-modal>
+
+
+  <div>
+    <h3>Fecha seleccionada:</h3>
+    <p>{{ selectedDate }}</p>
+  </div>
   </div>
 </ion-content>

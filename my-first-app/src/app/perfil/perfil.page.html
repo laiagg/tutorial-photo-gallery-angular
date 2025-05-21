@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="perfil-container">
+    <h2>Nombre de Usuario</h2>
+    <ion-chip [outline]="true">Puesto</ion-chip>
+    <p>Información del perfil</p>
+  </div>
+
+  <ion-accordion-group [animated]="false">
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Nombre</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Nombre</div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Dirección</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Dirección</div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Numero de telefono</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Numero de telefono</div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>
