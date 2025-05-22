@@ -1,8 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { NavController } from '@ionic/angular';
-
 
 @Component({
   selector: 'app-detalle',
@@ -14,12 +12,9 @@ import { NavController } from '@ionic/angular';
 export class DetallePage {
   item: string = '';
 
-  constructor(private route: ActivatedRoute, private navCtrl: NavController) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.item = this.route.snapshot.paramMap.get('item') || '';
   }
-//   volverAtras() {
-//   this.navCtrl.navigateBack('/home');
-// }
 }
